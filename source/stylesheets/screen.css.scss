@@ -496,6 +496,30 @@ html, body {
     &.success {
       background-color: $aside-success-bg;
     }
+
+    &.get {
+      background-color: $aside-get-bg;
+    }
+
+    &.post {
+      background-color: $aside-post-bg;
+    }
+
+    &.put {
+      background-color: $aside-put-bg;
+    }
+
+    &.patch {
+      background-color: $aside-patch-bg;
+    }
+
+    &.delete {
+      background-color: $aside-delete-bg;
+    }
+
+    &.options-or-head {
+      background-color: $aside-options-or-head-bg;
+    }
   }
 
   aside:before {
@@ -514,6 +538,35 @@ html, body {
 
   aside.success:before {
     @extend %icon-ok-sign;
+  }
+
+  aside.http:before{
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  aside.get:before {
+    @extend .http;
+    content: "get";
+  }
+
+  aside.post:before {
+    @extend .http;
+    content: "post";
+  }
+
+  aside.put:before {
+    @extend .http;
+    content: "put";
+  }
+
+  aside.patch:before {
+    @extend .http;
+    content: "patch";
+  }
+
+  aside.delete:before {
+    @extend .http;
+    content: "delete";
   }
 
   .search-highlight {

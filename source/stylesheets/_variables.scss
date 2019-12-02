@@ -38,6 +38,15 @@ $main-bg: #F3F7F9 !default;
 $aside-notice-bg: #8fbcd4 !default;
 $aside-warning-bg: #c97a7e !default;
 $aside-success-bg: #6ac174 !default;
+
+$aside-get-bg: #3eb63e !default;  // colors are taken directly from POSTMAN
+$aside-post-bg: #f5a623 !default;
+$aside-put-bg: #4a90e2 !default;
+$aside-patch-bg: #666 !default;
+$aside-delete-bg: #ed4b48 !default;
+$aside-options-or-head-bg: #c5c5c5 !default;
+
+
 $search-notice-bg: #c97a7e !default;
 
 
@@ -98,6 +107,6 @@ $search-box-border-color: #666 !default;
 // These settings are probably best left alone.
 
 %break-words {
-    word-break: break-all;
-    hyphens: auto;
+  word-break: break-all;
+  hyphens: auto;
 }
