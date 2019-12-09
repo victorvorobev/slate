@@ -13,6 +13,6 @@ RUN bundle install
 COPY . /usr/src/app
 VOLUME /usr/src/app/source
 
-EXPOSE 4567
+EXPOSE 8000
 
 CMD ["bundle", "exec", "middleman", "server", "--watcher-force-polling"]
