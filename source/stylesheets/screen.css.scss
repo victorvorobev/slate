@@ -310,6 +310,16 @@ html, body {
       color: $lang-select-active-text;
     }
   }
+  // Version Details
+  p {
+    display: block;
+    float: left;
+    color: $lang-select-text;
+    text-decoration: none;
+    padding: 0 10px;
+    line-height: 0;
+    outline: 0;
+  }
 
   &:after {
     content: '';

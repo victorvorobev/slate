@@ -110,6 +110,7 @@ under the License.
       <div class="dark-box">
         <% if language_tabs.any? %>
           <div class="lang-selector">
+            <p><%= current_page.data.version_badge %></p>
             <% language_tabs.each do |lang| %>
               <% if lang.is_a? Hash %>
                 <a href="#" data-language-name="<%= lang.keys.first %>"><%= lang.values.first %></a>
