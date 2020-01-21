@@ -1,6 +1,8 @@
 app:
   build: .
   ports:
-    - 8000:8000
+    - "$DOCS_PORT:$DOCS_PORT"
+  env_file: .env
   volumes:
     - ./source:/usr/src/app/source
+  container_name: "slate_app_$DOCS_PORT"
