@@ -6,3 +6,4 @@ app:
   volumes:
     - ./source:/usr/src/app/source
   container_name: "slate_app_$DOCS_PORT"
+  entrypoint: /srv/slate/slate.sh serve
