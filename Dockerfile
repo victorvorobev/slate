@@ -1,19 +1,30 @@
-FROM ruby:2.6.5
+FROM ruby:2.6-slim
+
+WORKDIR /srv/slate
+
+VOLUME /srv/slate/build
+VOLUME /srv/slate/source
 
 ENV DOCS_PORT=$DOCS_PORT
-RUN apt-get update && apt-get install -y nodejs \
-&& apt-get clean && rm -rf /var/lib/apt/lists/*
-
-COPY ./Gemfile /usr/src/app/
-COPY ./Gemfile.lock /usr/src/app/
-WORKDIR /usr/src/app
-
-RUN gem install bundler --version '2.0.2'
-RUN bundle install
-
-COPY . /usr/src/app
-VOLUME /usr/src/app/source
-
 EXPOSE $DOCS_PORT
 
-CMD bundle exec middleman server --watcher-force-polling --port $DOCS_PORT
+COPY Gemfile .
+COPY Gemfile.lock .
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        build-essential \
+        git \
+        nodejs \
+    && gem install bundler \
+    && bundle install \
+    && apt-get remove -y build-essential git \
+    && apt-get autoremove -y \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY . /srv/slate
+
+RUN chmod +x /srv/slate/slate.sh
+
+ENTRYPOINT ["/srv/slate/slate.sh"]
+CMD ["build"]
